@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "https://kupikolesa.it-trends.ru",
+    "secure": false
+  }
+}

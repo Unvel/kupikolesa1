@@ -1,0 +1,49 @@
+.multiselect-list {
+  background-color: #f2dc61;
+  padding: 20px;
+  width: 650px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+::ng-deep {
+  display: block;
+  .dropdown-list {
+    font-size: small;
+    ul {
+      overflow-x: hidden !important;
+    }
+  }
+  .is-invalid {
+    .dropdown-btn {
+      border: 1px solid red !important;
+    }
+  }
+  .multiselect-dropdown {
+    background-color: #fff;
+    margin: 10px 0;
+
+    div {
+      width: 300px;
+      border: none;
+      outline: none;
+    }
+    .dropdown-btn {
+      span {
+        font-size: medium;
+        font-weight: 500;
+      }
+      .selected-item {
+        font-size: small;
+        font-weight: 500;
+
+        &:hover {
+          box-shadow: 1px 1px 2px 0px #5a5a5a !important;
+        }
+      }
+    }
+  }
+}

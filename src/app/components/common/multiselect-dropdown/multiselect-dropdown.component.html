@@ -1,0 +1,24 @@
+<!-- <div *ngIf="options && options.items" class="multiselect_dropdown">
+  <div *ngFor="let item of options.items">
+    <button
+      class="btn multiselect_dropdown-button"
+      [class.selected]="selectedOption === item.name"
+      (click)="selectOption(item.name)"
+    ></button>
+  </div>
+</div> -->
+
+<form class="multiselect">
+  <div class="multiselect-list">
+    <ng-multiselect-dropdown
+      *ngFor="let item of options"
+      [placeholder]="item.name"
+      [settings]="dropdownSettings"
+      [data]="item.values"
+      (onSelect)="onItemSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+    >
+    </ng-multiselect-dropdown>
+  </div>
+</form>
+<!-- [(ngModel)]="selectedItems" -->

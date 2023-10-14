@@ -1,0 +1,317 @@
+.productPage__wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .product__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    .product__header__col {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      min-width: 400px;
+      justify-content: space-between;
+    }
+
+    .product__id {
+      opacity: 0.4;
+      font-weight:500;
+      font-size: 1.3rem;
+    }
+    .product__favorite__button {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .product__rating {
+    display: flex;
+    flex-direction: row;
+    font-size: 1rem;
+    p{
+      margin: 0 10px;
+    }
+  }
+
+  .product__title{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.6rem;
+  }
+
+  .product__information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    .product__image {
+      max-height: 260px;
+    }
+
+    .product__description {
+      display: flex;
+      flex-direction: column;
+      background: #F1F1F1;
+      padding: 32px 38px;
+      border-radius: 5px;
+
+
+      .product__description__row {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        align-items: center;
+
+        .product__description__col {
+          display: flex;
+          flex-direction: column;
+          min-width: 160px;
+
+          .product__description__category {
+            font-size: 18px;
+            color: #848484;
+          }
+
+          .product__description__info {
+            font-size: 22px;
+          }
+        }
+
+        .product__additionalInformation {
+          font-size: 20px;
+          color: #5A5E6C;
+        }
+      }
+
+      .product__price {
+        font-size: 27px;
+        color: #6f92d0;
+      }
+
+      .product__totalPrice {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .product__counter {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 120px;
+        margin-bottom: 10px;
+
+        .product__counter__button {
+          border:1px solid #2B2D33;
+          width: 28px;
+          height: 28px;
+          border-radius: 2px;
+          font-size: 20px;
+          cursor: pointer;
+        }
+
+        .product__counter__input {
+          width: 30px;
+          height: 28px;
+          text-align: center;
+          border: 0;
+          background: inherit;
+        }
+      }
+
+      .product__addToCart__button {
+        border: 0;
+        border-radius: 5px;
+        width: 100%;
+        background: #f3dc61;
+        font-size: 18px;
+        height: 45px;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .productPage__tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 40px auto 0 ;
+
+    .productPage__tabs__button {
+      border: 0;
+      border-radius: 5px;
+      background: #f3dc61;
+      padding: 8px 35px;
+      font-size: 22px;
+      opacity: 1;
+      cursor: pointer;
+      width: 267px;
+      text-decoration: none;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0% 100%;
+      background-repeat: no-repeat;
+      background-size: 0% 2px;
+      transition: background-size .3s;
+      &:hover{
+        opacity: 0.8;
+        background-size: 100% 2px;
+      }
+
+    }
+
+    .productPage__tabs__active {
+      opacity: 1;
+    }
+  }
+  .productPage__tabsInformation {
+    padding: 30px 0;
+  }
+
+  @media (max-width: 1200px) {
+    .product__information, .productPage__tabs {
+      max-width: 960px;
+    }
+
+    .productPage__tabs__button {
+      width: 222px;
+      height: 68px;
+    }
+
+    .product__info {
+      max-width: 386px;
+      padding: 16px 19px !important;
+    }
+
+    .product__priceBox {
+      padding: 16px 19px !important;
+    }
+
+    .product__image {
+      max-width: 160px;
+    }
+
+    .product__header {
+      flex-wrap: wrap;
+      max-width: 991px;
+
+      .product__header__col {
+        width: 100%;
+      }
+    }
+
+    .product__rating {
+      margin: 0 auto;
+      max-width: 991px;
+    }
+  }
+
+  @media (max-width: 991px) {
+
+    .product__header, .product__rating {
+      margin: 0 auto;
+      max-width: 744px;
+    }
+
+    .product__image {
+      min-width: 180px ;
+    }
+    .product__information {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      max-width: 744px;
+      .product__description {
+        margin-left: 150px;
+        min-width: 410px;
+
+      }
+      .product__priceBox {
+        min-width: 410px;
+        margin-top: 20px;
+        margin-left: 330px;
+      }
+
+    }
+
+    .productPage__tabs {
+      flex-wrap: wrap;
+      margin: 0 auto;
+      max-width: 744px;
+    }
+
+    .productPage__tabs__button {
+      width: 348px;
+      height: 42px;
+      margin: 20px 0 0 20px;
+
+    }
+  }
+
+  @media (max-width: 767px) {
+
+    .product__header, .product__information,
+    .product__rating, .productPage__tabs {
+      max-width: 564px;
+    }
+
+    .product__priceBox{
+      width: 540px;
+      margin: 0 auto 40px !important;
+
+      .product__description__row {
+        justify-content: space-between;
+      }
+
+    }
+
+    .product__info {
+      min-width: 540px !important;
+      margin: 20px auto 20px !important;
+    }
+
+    .productPage__tabs__button {
+      width: 258px;
+      height: 42px;
+      margin: 10px auto;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .product__header, .product__information,
+    .product__rating, .productPage__tabs,
+    {
+      max-width: 511px;
+    }
+
+    .product__description {
+      max-width: 511px !important;
+
+      .product__info {
+        max-width: 511px !important;
+        margin: 20px auto 20px !important;
+      }
+      .product__priceBox{
+        width: 511px;
+        margin: 0 auto 40px !important;
+      }
+    }
+
+    .productPage__tabs__button {
+      width: 511px;
+      height: 42px;
+      margin: 10px auto;
+    }
+
+  }
+}
+

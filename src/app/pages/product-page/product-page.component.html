@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="product-page.component.scss">
+<div class="productPage__wrapper">
+  <div class="product__header">
+    <div class="product__header__col">
+      <h1 class="product__title">{{product.name}}</h1>
+    </div>
+    <div class="product__header__col">
+      <h3 class="product__id">Код товара: {{product.id}}</h3>
+      <button type="submit" class="btn product__favorite__button">
+        <img width="20" height="20" src="assets/icons/needle.svg" alt="search-icon" />
+        <p>В избранное</p>
+      </button>
+    </div>
+
+  </div>
+  <div style="" class="product__rating">
+    <img src="assets/icons/icons8-star-48.png" width="20" height="20" alt="">
+    <img src="assets/icons/icons8-star-48.png" width="20" height="20" alt="">
+    <img src="assets/icons/icons8-star-48.png" width="20" height="20" alt="">
+    <img src="assets/icons/icons8-star-48.png" width="20" height="20" alt="">
+    <img src="assets/icons/icons8-star-48-grey.png" width="20" height="20" alt="">
+    <p>4.0</p>
+  </div>
+  <div class="product__information">
+      <img class="product__image" src={{imageUrl}} alt="product {{product.id}} image" >
+    <div class="product__description product__info">
+      <div class="product__description__row">
+        <div class="product__description__col">
+          <h4 class="product__description__category">Сезон</h4>
+        </div>
+        <div class="product__description__col">
+        <h4 class="product__description__info">Зима <img width="24" src="assets/icons/snow.svg" alt="Лето"></h4>
+        </div>
+      </div>
+      <div class="product__description__row">
+        <div class="product__description__col">
+          <h4 class="product__description__category">Ось</h4>
+        </div>
+        <div class="product__description__col">
+          <h4 class="product__description__info">Передняя ось</h4>
+        </div>
+      </div>
+      <div class="product__description__row">
+        <div class="product__description__col">
+          <h4 class="product__description__category">Наличие</h4>
+        </div>
+        <div class="product__description__col">
+          <h4 class="product__description__info">
+            <span style="color: #16C888">
+              В наличии(> {{product.count}} шт.)
+            </span>
+          </h4>
+        </div>
+      </div>
+
+      <div class="product__description__row">
+        <div class="product__description__col">
+          <h4 class="product__description__category">Самовывоз</h4>
+        </div>
+        <div class="product__description__col">
+          <h4 class="product__description__info">
+            Через 2 дня
+            <img alt="" style="vertical-align:middle;" src="assets/icons/question-mark.svg">
+          </h4>
+        </div>
+      </div>
+      <div class="product__description__row">
+        <div class="product__description__col">
+          <h4 class="product__description__category">Доставка</h4>
+        </div>
+        <div class="product__description__col">
+            <h4 class="product__description__info" >
+              Через 2 дня
+             <img alt="" style="vertical-align:middle;" src="assets/icons/question-mark.svg">
+            </h4>
+        </div>
+      </div>
+      <div class="product__description__row">
+        <div class="product__additionalInformation">
+          <h4>
+            <img style="vertical-align: middle; margin-right: 10px;" src="assets/icons/exclamation-point.svg" alt="">
+            Условия бесплатной доставки
+          </h4>
+        </div>
+      </div>
+    </div>
+    <div class="product__description product__priceBox">
+        <div class="product__description__row">
+          <div class="product__description__col">
+            <h4 class="product__price" >
+              {{product.price | currency:'₽'}}
+            </h4>
+          </div>
+          <div class="product__description__col">
+            <h5 style="color: #959595">общая сумма</h5>
+            <h4 class="product__totalPrice" >
+              {{product.price * productCartCount | currency:'₽'}}
+            </h4>
+          </div>
+        </div>
+        <div class="product__description__row">
+          <div class="product__description__col">
+            <h4>Количество</h4>
+          </div>
+          <div class="product__description__col">
+            <div class="product__counter">
+              <button
+                class="product__counter__button"
+                type="submit"
+                (click)="minusCount()"
+              >–</button>
+              <input
+                class="product__counter__input"
+                type="text"
+                min="1"
+                max="{{product.count}}"
+                name="counter"
+                [defaultValue]="4"
+                [value]="productCartCount"
+                id="counter"
+                [(ngModel)]="productCartCount"
+              >
+              <button
+                class="product__counter__button"
+                type="submit"
+                (click)="plusCount()"
+              >+</button>
+            </div>
+          </div>
+
+        </div>
+        <div class="product__description__row">
+          <div class="product__additionalInformation">
+            <h4>
+              <img style="vertical-align: middle; margin-right: 10px;"
+                   src="assets/icons/exclamation-point.svg"
+                   alt="">
+              Рассрочка или кредит
+            </h4>
+          </div>
+        </div>
+        <div class="product__description__row">
+          <button type="submit" class="product__addToCart__button">
+            <h4>
+              <img style="vertical-align: middle; margin-right: 10px;"
+                   src="assets/icons/basket.svg"
+                   alt="">
+              Добавить в корзину
+            </h4>
+          </button>
+        </div>
+      </div>
+  </div>
+  <ul class="productPage__tabs">
+    <li *ngFor="let tab of tabsList">
+      <button (click)="openTab(tab)" class="productPage__tabs__button ">
+        {{tab}}
+      </button>
+    </li>
+  </ul>
+
+  <div class="productPage__tabsInformation">
+
+    <ng-container *ngIf="selectedTab === 'Описание'">
+      Описание модели {{product.name}}:
+      {{product.description}}
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab === 'Характеристики'">
+      Характеристики для модели {{product.name}}:
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab === 'Похожие товары'">
+      Похожие товары:
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab === 'Отзывы'">
+      Отзывы покупателей:
+    </ng-container>
+  </div>
+</div>

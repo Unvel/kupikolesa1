@@ -1,0 +1,165 @@
+.header {
+  max-width: 100%;
+  margin-top: 20px;
+  .header_wrapper {
+    min-height: 160px;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+    display: flex;
+    .header__left-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .left__side-top {
+        display: flex;
+        align-items: center;
+        .icon-map {
+          width: 150px;
+          display: flex;
+          align-items: center;
+          color: #3153b6;
+          font-size: medium;
+          text-decoration: underline;
+        }
+        .logo {
+          width: 251px;
+          img {
+            width: 100%;
+            padding-right: 18px;
+          }
+        }
+      }
+    }
+    .left__side-bootom {
+      display: flex;
+      padding-top: 24px;
+      align-items: center;
+      justify-content: space-between;
+      .btn-header-transport {
+        font-size: large;
+        background-color: #f2dc61;
+        padding: 6px 12px;
+        border-radius: 4px;
+      }
+    }
+
+    .header__right-side {
+      width: 100%;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .header__right-side-top {
+        display: flex;
+        justify-content: space-between;
+        .header__phones-capital {
+          width: 180px;
+          .header__phone-number {
+            width: 100%;
+          }
+          p {
+            margin: 0;
+            font-size: small;
+            color: #a6a5a1;
+          }
+        }
+        .header__phones-regions {
+          width: 180px;
+          .header__phone-number {
+            width: 100%;
+          }
+          p {
+            margin: 0;
+            font-size: small;
+            color: #a6a5a1;
+          }
+        }
+        .header__call-back {
+          width: 170px;
+          padding: 0 10px;
+          display: flex;
+          flex-direction: column;
+          font-size: medium;
+          a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+          }
+        }
+        .header__personal-account {
+          border: 1px solid #f0f0f0;
+          border-radius: 3px;
+          padding: 6px 14px;
+          max-height: 56px;
+          transition: background-color 0.3s ease-in-out;
+          &:hover {
+            background-color: #f0f0f0;
+            cursor: pointer;
+          }
+          .header__personal-account-link {
+            .header__pearsonal-account-icons {
+              display: flex;
+              flex-direction: row;
+              gap: 5px;
+              .personal-account-icon {
+                width: 25px;
+                padding: 4px;
+                border-radius: 100%;
+                background-color: #f2dc61;
+              }
+              .personal-account-arrow {
+                width: 18px;
+              }
+            }
+            p {
+              font-size: small;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  .header__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .btn__header-menu {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-size: large;
+      background-color: #eaeaea;
+      padding: 6px 12px;
+      border-radius: 4px;
+      img {
+        width: 20px;
+      }
+    }
+    .btn__header-menu-basket {
+      position: relative;
+      span {
+        display: inline-block;
+        width: max-content;
+        position: absolute;
+        height: 15px;
+        padding: 10px 6px;
+        line-height: 1px;
+        right: -5px;
+        top: -10px;
+        background-color: #f2dc61;
+        border-radius: 50rem;
+        font-size: small;
+        font-weight: 600;
+      }
+    }
+  }
+  .header__link-to-main {
+    display: block;
+    width: fit-content;
+    margin: 16px 12px;
+    text-decoration: underline;
+    color: #3153b6;
+  }
+}
