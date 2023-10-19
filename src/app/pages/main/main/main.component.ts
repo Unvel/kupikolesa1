@@ -1,6 +1,7 @@
-import { IProduct } from 'src/app/interfaces/IProduct';
-import { ProductsService } from './../../../services/products-service.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import {IProduct} from 'src/app/interfaces/IProduct';
+import {ProductsService} from './../../../services/products-service.service';
+import {Component, Inject, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-main',
@@ -10,9 +11,13 @@ import { Component, Inject, OnInit } from '@angular/core';
 export class MainComponent implements OnInit {
   constructor(
     @Inject(ProductsService) private productService: ProductsService
-  ) {}
+  ) {
+  }
+
   products: IProduct[];
   selectBarOptions!: any;
+  filteredProducts: IProduct[];
+
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => {
@@ -20,6 +25,7 @@ export class MainComponent implements OnInit {
     });
     this.productService.getSelectBarOptions().subscribe((options: any) => {
       this.selectBarOptions = options.items;
-    })
+    });
   }
 }
+

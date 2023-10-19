@@ -11,7 +11,7 @@
 <form class="multiselect">
   <div class="multiselect-list">
     <ng-multiselect-dropdown
-      *ngFor="let item of options"
+      *ngFor="let item of options; index as i"
       [placeholder]="item.name"
       [settings]="dropdownSettings"
       [data]="item.values"
