@@ -16,8 +16,6 @@ export class MainComponent implements OnInit {
 
   products: IProduct[];
   selectBarOptions!: any;
-  filteredProducts: IProduct[];
-
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe((products) => {

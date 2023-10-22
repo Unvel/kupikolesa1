@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {Component, Inject, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import {ProductsService} from "../../../services/products-service.service";
 
 @Component({
   selector: 'app-multiselect-dropdown',
@@ -11,6 +12,7 @@ export class MultiselectDropdownComponent  {
   dropdownList: any = [];
   selectedItems: any = [];
   data: any ;
+  filteredProducts: any;
   dropdownSettings: IDropdownSettings = {
     singleSelection: false,
     idField: 'value',
@@ -21,19 +23,45 @@ export class MultiselectDropdownComponent  {
     itemsShowLimit: 3,
     allowSearchFilter: true,
   };
+  constructor(
+    @Inject(ProductsService) private productService: ProductsService
+  ) {
+  }
 
-  onItemSelect(item: any) {
+  onItemSelect(id: number, item: any) {
     console.log(item);
+    this.options[id].values.find((x: any) => x.value == item.value).isSelected = true;
     console.log(this.options)
-    for (let i = 0; i < this.data.length; i++) {
-      if (this.data.value === item.value) {
-        this.data.isSelected = true;
-        console.log(this.data)
-      }
+  }
+  onItemDeSelect(id: number, item: any) {
+    this.options[id].values.find((x: any) => x.value == item.value).isSelected = false;
+  }
+
+  onSelectAll(id:number, items: any) {
+    console.log(items);
+    for (let i = 0; i < items.length; i++) {
+      this.options[id].values[i].isSelected = true;
     }
   }
-  onSelectAll(items: any) {
+
+  onDeSelectAll(id:number, items: any) {
     console.log(items);
+    for (let i = 0; i < this.options[id].values.length; i++) {
+      this.options[id].values[i].isSelected = false;
+    }
   }
+
+  fillFilteredItems() {
+    for (let i = 0; i <= 3; i++) {
+      for (const item of this.options[i].values) {
+        if(item.isSelected) {
+          this.selectedItems.push(item)
+        }
+      }
+    }
+    console.log(this.selectedItems)
+    this.filteredProducts = this.productService.getFilteredProducts(this.selectedItems).subscribe((options: any) => {});
+  }
+
 }
 

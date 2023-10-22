@@ -4,6 +4,8 @@ import { MainComponent } from './pages/main/main/main.component';
 import { CartComponent } from './pages/cart/cart.component';
 import {ProductPageComponent} from "./pages/product-page/product-page.component";
 import {ProductResolver} from "./resolvers/product.resolver";
+import {ProductsComponent} from "./pages/products/products/products.component";
+import {FilteredProductsResolver} from "./resolvers/filteredProducts.resolver";
 
 const routes: Routes = [
   {
@@ -22,6 +24,11 @@ const routes: Routes = [
     path: 'product/:id',
     component: ProductPageComponent,
     resolve: {data: ProductResolver}
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    resolve: {data: FilteredProductsResolver}
   }
 ];
 

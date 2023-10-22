@@ -10,7 +10,6 @@ import {ActivatedRoute} from "@angular/router"
 
 export class ProductPageComponent implements OnInit {
   @Input() product: IProduct;
-  productSubscription: Subscription;
   imageUrl: string;
   tabsList: string[] = ['Описание', 'Характеристики','Похожие товары', 'Отзывы']
   selectedTab: string = 'Описание';

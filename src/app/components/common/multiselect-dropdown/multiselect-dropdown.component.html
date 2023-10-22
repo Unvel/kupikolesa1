@@ -15,10 +15,15 @@
       [placeholder]="item.name"
       [settings]="dropdownSettings"
       [data]="item.values"
-      (onSelect)="onItemSelect($event)"
-      (onSelectAll)="onSelectAll($event)"
+      (onSelect)="onItemSelect(i, $event)"
+      (onSelectAll)="onSelectAll(i, $event)"
+      (onDeSelect)="onItemDeSelect(i, $event)"
+      (onDeSelectAll)="onDeSelectAll(i, $event)"
     >
     </ng-multiselect-dropdown>
+    <a style="width: 100%" routerLink="/products">
+    <button class="findFilteredProductsBtn" type="button" (click)="fillFilteredItems()">Найти</button>
+    </a>
   </div>
 </form>
 <!-- [(ngModel)]="selectedItems" -->

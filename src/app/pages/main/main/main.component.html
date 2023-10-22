@@ -1,11 +1,5 @@
 <div class="container">
   <app-multiselect-dropdown [options]="selectBarOptions"></app-multiselect-dropdown>
-  <div class="main__products-wrapper">
-    <app-product-card
-      *ngFor="let product of products"
-      [product]="product"
-    ></app-product-card>
-  </div>
   <h2 class="main-title">Популярные товары</h2>
   <div class="main__products-wrapper">
     <app-product-card
