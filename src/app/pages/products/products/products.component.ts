@@ -17,7 +17,6 @@ export class ProductsComponent implements OnInit{
   ngOnInit(): void {
       this.route.data.subscribe((data) => {
       this.filteredProducts = data['data'];
-
     })
   }
 }

@@ -60,7 +60,6 @@ export class MultiselectDropdownComponent  {
       }
     }
     console.log(this.selectedItems)
-    this.filteredProducts = this.productService.getFilteredProducts(this.selectedItems).subscribe((options: any) => {});
   }
 
 }

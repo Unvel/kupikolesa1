@@ -27,14 +27,7 @@ export class ProductsService {
     return this.http.get<IProduct>(`https://kupikolesa.it-trends.ru/api/product/` + id)
   }
 
-  getFilteredProducts(selectedItems: any) {
-  let stringURL = "https://kupikolesa.it-trends.ru/api/product?Skip=0&Take=12&CategoryId=5&Orientation=False&"
-    console.log(selectedItems.length)
-    for (let i = 0; i < selectedItems.length; i++) {
-      stringURL += `Options[${i}].Id=${selectedItems[i].optionId}&Options[${i}].Values[${i}].Id=${selectedItems[i].id}&`
-    }
-    stringURL += "Price.Min=0&Price.Max=124586.52"
-    console.log(stringURL)
+  getFilteredProducts(stringURL: any) {
   return this.http.get<IProduct>(stringURL)
   }
 
